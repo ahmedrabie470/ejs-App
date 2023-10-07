@@ -1,0 +1,38 @@
+<%- include("shared/header") %>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+
+                <th scope="col">name</th>
+                <th scope="col">email</th>
+                <th scope="col">image</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            <% for( let i = 0; i < allUser.length; i++ ) { %>
+                <tr>
+                    <th scope="row">
+                        <%= i+1 %>
+                    </th>
+                    <td>
+                        <%= allUser[i].userName%>
+                    </td>
+                    <td>
+                        <%= allUser[i].email%>
+                    </td>
+                    <td>
+                        <img src="<%=allUser[i].image %>">
+                    </td>
+
+                </tr>
+                <% } %>
+
+
+
+        </tbody>
+    </table>
+
+    <%- include("shared/footer") %>

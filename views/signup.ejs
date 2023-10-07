@@ -1,0 +1,65 @@
+<%-  include("shared/header") %>
+
+
+
+    <p class="text-danger">wLCOME SIGNUP WITH EJS</p>
+    <% if (message) { %>
+        <p class="alert alert-danger text-center">
+            <%= message %>
+        </p>
+        <% } %>
+
+            <form   method="post" action="/signup" enctype="multipart/form-data" class="container text-center p-5 m-3 mx-auto">
+
+
+                <div class="form-group">
+                    <input type="file" class="form-control" placeholder="Image" name="image">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" value="<%= oldInputs.userName %>" placeholder="userName" name="userName">
+                </div>
+                <% if (validationMessage.find(ele =>  ele.param == 'userName')) { %>
+                    <div class="my-2 p-2 alert alert-danger text-center">
+
+                        In-valid userName
+    
+                    </div>
+                <% } %>
+                
+                <div class="form-group">
+                    <input type="email" class="form-control"  value="<%= oldInputs.email %>" placeholder="Email" name="email">
+                </div>
+
+                <% if (validationMessage.find(ele =>  ele.param == 'email')) { %>
+                    <div class="my-2 p-2 alert alert-danger text-center">
+
+                        In-valid Email
+    
+                    </div>
+                <% } %>
+                <div class="form-group">
+                    <input type="password" class="form-control"  value="<%= oldInputs.password %>" placeholder="password" name="password">
+                </div>
+                <% if (validationMessage.find(ele =>  ele.param == 'password')) { %>
+                    <div class="my-2 p-2 alert alert-danger text-center">
+
+                        In-valid Password
+    
+                    </div>
+                <% } %>
+                <div class="form-group">
+                    <input type="password" class="form-control" value="<%= oldInputs.cPassword %>" placeholder="cPassword" name="cPassword">
+                </div>
+
+                <% if (validationMessage.find(ele =>  ele.param == 'cPassword')) { %>
+                    <div class="my-2 p-2 alert alert-danger text-center">
+
+                        In-valid Cpassword
+    
+                    </div>
+                <% } %>
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
+            </form>
+
+
+            <%- include('shared/footer') %>
